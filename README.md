@@ -6,15 +6,32 @@
 - Sau khi đã tạo xong, xóa `Assets` và `ProjectSettings` đi và thay bằng `Assets` và `ProjectSettings` của game BattleCity
 
 ## 2. Setup máy ảo Linux Ubuntu
+### Cài Ubuntu
 Mở `Command Prompt` quyền admin, gõ
 ```shell
 wsl --install -d Ubuntu-24.04
 ```
 
-Cài đặt các thư viện cần thiết bằng cách chạy lần lượt các câu lệnh sau
+### Cài đặt các thư viện cần thiết bằng cách chạy lần lượt các câu lệnh sau
 ```shell
 sudo apt-get update
 sudo apt-get install cmake g++ libboost-all-dev python3-dev python3-pip
 pip install pybind11-global numpy
 sudo apt-get install build-essential python3-pybind11
 ```
+
+### Kéo code Ubuntu về
+```shell
+git clone --filter=blob:none --no-checkout https://github.com/dinhvhung/Project_2.git
+cd myrepo
+
+git sparse-checkout init --cone
+git sparse-checkout set 'Ubuntu Setup'
+
+git checkout main
+
+cd Project_2/'Ubuntu Setup'
+```
+
+### Tạo file build để chạy code
+
