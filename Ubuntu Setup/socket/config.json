@@ -1,0 +1,7 @@
+{
+    "mapFile": "data.map",
+    "agentFile": "data.agents",
+    "teamSize": 1,
+    "taskFile": "data.task",
+    "version": "2024 LoRR"
+}
