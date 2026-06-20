@@ -34,4 +34,33 @@ cd Project_2/'Ubuntu Setup'
 ```
 
 ### Tạo file build để chạy code
+Chạy lần lượt các lệnh sau
+```
+mkdir build
+cmake -B build ./ -DCMAKE_BUILD_TYPE=Release
+make -C build -j1
+```
+(Bạn có thể thay `j1` = `j2`, `j3`, `j4` nếu RAM đủ mạnh để tiết kiệm thời gian tải)
 
+#### Lệnh mẫu để chạy thử
+```
+./build/lifelong --inputFile ./example_problems/random.domain/random_32_32_20_100.json -o test.json
+```
+Nếu hiện ra như sau tức là đã chạy được thuật toán
+```
+[2026-06-20 11:06:08.229345] [0x00007476232a9740] [info]    [timestep=0] Preprocessing success
+[2026-06-20 11:06:08.229421] [0x00007476232a9740] [info]    Task 1 is revealed
+[2026-06-20 11:06:08.229431] [0x00007476232a9740] [info]    Task 2 is revealed
+[2026-06-20 11:06:08.229438] [0x00007476232a9740] [info]    Task 3 is revealed
+[2026-06-20 11:06:08.229445] [0x00007476232a9740] [info]    Task 4 is revealed
+[2026-06-20 11:06:08.229451] [0x00007476232a9740] [info]    Task 5 is revealed
+...
+```
+### Chạy Server
+- Tại Ubuntu, chạy lần lượt
+```
+cd socket
+g++ server.cpp -o server
+./server
+```
+- Lúc này, server sẽ đợi kết nối từ Unity. Tại Unity, hãy kiểm tra chắc chắn rằng script `SocketMap.cs` đã được gắn vào 1 `GameObject` bất kỳ, ấn nút khởi động Game để Unity bắt đầu gửi thông tin đến Ubuntu
